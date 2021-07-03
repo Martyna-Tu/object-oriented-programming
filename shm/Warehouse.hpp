@@ -6,7 +6,7 @@ class Warehouse {
 public:
     using CargoVec = std::vector<std::unique_ptr<Cargo>>;
 
-    Warehouse();
+    Warehouse() = default;
     Warehouse(CargoVec cargoVec);
 
     const CargoVec& getCargoVec() const;
