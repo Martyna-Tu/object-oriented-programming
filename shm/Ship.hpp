@@ -9,7 +9,7 @@ class Cargo;
 
 class Ship : public Warehouse {
 public:
-    Ship();
+    Ship() = default;
     Ship(CargoVec cargovec, size_t capacity, size_t maxCrew, size_t speed, const std::string& name, const size_t id);
     Ship(size_t maxCrew, size_t speed, size_t id);
  

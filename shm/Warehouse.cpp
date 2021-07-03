@@ -4,10 +4,6 @@
 #include "Warehouse.hpp"
 #include "Cargo.hpp"
 
-
-Warehouse::Warehouse() 
-{}
-
 Warehouse::Warehouse(CargoVec cargoVec) : cargoVec_(std::move(cargoVec))
 {}
 

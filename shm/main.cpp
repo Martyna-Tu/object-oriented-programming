@@ -51,7 +51,7 @@ void testCargoShipPlayer() {
         for(size_t i = 0; i < cargoAmount; ++i) {
             cargoVec.push_back(generateCargo());
         }
-        auto pirateShip = std::make_unique<Ship>(testShipCapacity, 40, 10, "The Adventure Galley Pirate Ship", 0, std::move(cargoVec));
+        auto pirateShip =std::make_unique<Ship>((std::move(cargoVec)), testShipCapacity, 40, 10, "The Adventure Galley Pirate Ship", 0);
         cargoVec.clear();
         Player pirate(std::move(pirateShip), 1000);
         std::cout << "\n\n--- CARGO/SHIP/PLAYER TEST ---\n";
