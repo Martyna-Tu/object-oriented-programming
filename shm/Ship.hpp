@@ -3,13 +3,14 @@
 #include <string>
 #include <vector>
 
+#include "Warehouse.hpp"
+
 class Cargo;
 
-class Ship {
+class Ship : public Warehouse {
 public:
-    using CargoVec = std::vector<std::unique_ptr<Cargo>>;
     Ship();
-    Ship(size_t capacity, size_t maxCrew, size_t speed, const std::string& name, const size_t id, CargoVec cargoVec);
+    Ship(CargoVec cargovec, size_t capacity, size_t maxCrew, size_t speed, const std::string& name, const size_t id);
     Ship(size_t maxCrew, size_t speed, size_t id);
  
     void setName(const std::string& name);
@@ -22,14 +23,12 @@ public:
     size_t getSpeed() const;   
     const std::string& getName() const;  
     size_t getId() const;
-    const CargoVec& getCargoVec() const;
      
 private:
-    size_t capacity_;
-    size_t maxCrew_;
-    size_t crew_;
-    size_t speed_;
-    std::string name_;
-    const size_t id_;
-    CargoVec cargoVec_;
+    size_t capacity_ = 0;
+    size_t maxCrew_ = 0;
+    size_t crew_ = 0;
+    size_t speed_ = 0;
+    std::string name_ = "";
+    size_t id_ = -1;
 };

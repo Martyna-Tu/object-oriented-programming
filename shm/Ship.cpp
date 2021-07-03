@@ -2,15 +2,15 @@
 #include "Ship.hpp"
 
 Ship::Ship()
-    : Ship(0, 0, 0, "", -1, {})
+    : Warehouse::Warehouse(), Ship()
 {}
 
-Ship::Ship(size_t capacity, size_t maxCrew, size_t speed, const std::string& name, const size_t id, CargoVec cargoVec)
-    : capacity_(capacity), maxCrew_(maxCrew), crew_(0), speed_(speed), name_(name), id_(id), cargoVec_(std::move(cargoVec))
+Ship::Ship(CargoVec cargoVec, size_t capacity, size_t maxCrew, size_t speed, const std::string& name, size_t id)
+    : Warehouse::Warehouse(cargoVec), capacity_(capacity), maxCrew_(maxCrew), crew_(0), speed_(speed), name_(name), id_(id)
 {}
 
-Ship::Ship(size_t maxCrew, size_t speed,const size_t id)
-    : Ship(0, maxCrew, speed, "", id, {})
+Ship::Ship(size_t maxCrew, size_t speed,size_t id)
+    : Warehouse::Warehouse(), Ship(0, maxCrew, speed, "", id)
 {}
 
 
@@ -46,8 +46,4 @@ const std::string& Ship::getName() const {
 
 size_t Ship::getId() const { 
     return id_; 
-}
-
-const Ship::CargoVec& Ship::getCargoVec() const { 
-    return cargoVec_; 
 }
